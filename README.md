@@ -10,4 +10,8 @@ The PMPP Book: [Programming Massively Parallel Processors: A Hands-on Approach](
 
 ## Lecture 1: Profiling and Integrating CUDA kernels in PyTorch
 - Speaker: [Mark Saroufim](https://twitter.com/marksaroufim)
-- Slides in [lecture_001](https://docs.google.com/presentation/d/110dnMW94LX1ySWxu9La17AVUxjgSaQDLOotFC3BZZD4/edit?slide=id.g2658e4ac9dd_0_0#slide=id.g2658e4ac9dd_0_0) folder    
+- Slides in [lecture_001](https://docs.google.com/presentation/d/110dnMW94LX1ySWxu9La17AVUxjgSaQDLOotFC3BZZD4/edit?slide=id.g2658e4ac9dd_0_0#slide=id.g2658e4ac9dd_0_0) folder
+
+## Lecture 2: Recap Ch. 1-3 from the PMPP book
+- Speaker: [Andreas Koepf](https://twitter.com/neurosp1ke)
+- Slides: Alternatively [here](https://docs.google.com/presentation/d/1deqvEHdqEC4LHUpStO6z3TT77Dt84fNAvTIAxBJgDck/edit#slide=id.g2b1444253e5_1_75) as Google docs presentation.
