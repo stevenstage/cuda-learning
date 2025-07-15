@@ -5,7 +5,7 @@ from torch.utils.cpp_extension import load_inline
 
 
 def compile_extension():
-    cuda_source = Path("gray.cu").read_text()
+    cuda_source = Path("rgb2gray.cu").read_text()
     cpp_source = "torch::Tensor rgb_to_grayscale(torch::Tensor image);"
 
     # Load the CUDA kernel as a PyTorch extension
