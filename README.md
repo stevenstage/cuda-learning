@@ -15,4 +15,4 @@ The PMPP Book: [Programming Massively Parallel Processors: A Hands-on Approach](
 ## Lecture 2: Recap Ch. 1-3 from the PMPP book
 - Speaker: [Andreas Koepf](https://twitter.com/neurosp1ke)
 - Slides: Alternatively [here](https://docs.google.com/presentation/d/1deqvEHdqEC4LHUpStO6z3TT77Dt84fNAvTIAxBJgDck/edit#slide=id.g2b1444253e5_1_75) as Google docs presentation.
-- I have implemented these experiments using [triton]()
+- I have implemented these experiments using [triton](https://github.com/stevenstage/cuda-learning/tree/main/lecture002/triton)
