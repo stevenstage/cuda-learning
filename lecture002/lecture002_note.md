@@ -87,7 +87,10 @@ It is the following expression:
 ```c++
 C[i] = i * 1.001
 ```
-Therefore, the printed result is the image result shown above.
+Therefore, the printed result is the image result shown above:
+<p align="center">
+  <img src="https://github.com/stevenstage/cuda-learning/blob/main/image/lecture_002/1.png" width="800px"/>
+</p>
 
 ### Ex2: image become gray
 After becoming familiar with the syntax of CUDA kernel functions, we can utilize this custom kernel function to implement related functionality, i.e., combining C++ and Python to maximise the use of GPU memory to create hardware-aligned algorithms.
@@ -140,7 +143,13 @@ torch::Tensor rgb_to_grayscale(torch::Tensor image) {
         height
     );
 ```
-It is simply a matter of creating the output tensor and then starting the kernel. The output image is shown below:
+It is simply a matter of creating the output tensor and then starting the kernel. The output  is shown below:
+<p align="center">
+  <img src="https://github.com/stevenstage/cuda-learning/blob/main/image/lecture_002/2.png" width="800px"/>
+</p>
+<p align="center">
+  <img src="https://github.com/stevenstage/cuda-learning/blob/main/image/lecture_002/gray_output.png" width="800px"/>  
+</p>
 
 ### Ex3: Mean Filter
 This experiment mainly implements image blurring. Since it is very similar to Ex2, we will only introduce how the kernel function is written here. The implementation of this function is found in the [filter.cu](https://github.com/stevenstage/cuda-learning/blob/main/lecture002/filter.cu) file.
@@ -174,4 +183,10 @@ void mean_filter_kernel(unsigned char* output, unsigned char* input, int width, 
 ```
 After calculating the thread index and offset, we arrive at the core part of the mean filter: two for functions iterate through a (2*radius+1) × (2*radius+1) square centred on (row, col), accumulate only the pixel values within the boundary, and finally divide by the actual number of accumulated pixels to obtain the average value. Finally, the result is written back directly.
 
-The output image is shown below:
+The output is shown below:
+<p align="center">
+  <img src="https://github.com/stevenstage/cuda-learning/blob/main/image/lecture_002/3.png" width="800px"/>
+</p>
+<p align="center">
+  <img src="https://github.com/stevenstage/cuda-learning/blob/main/image/lecture_002/filter_output.png" width="800px"/>  
+</p>
