@@ -3,7 +3,7 @@
 The slides already give you all the info you need about the principles, so this tutorial will focus on how to do the experiments and record the process to help get you started quickly.
 
 ### Ex1: vector addition
-The implementation of this function is found in the vector_add.cu file. It should be noted that the CUDA kernel is written directly in C++, and consequently, during the compilation process, the initial step involves generating a.out, which then requires further compilation to yield the desired result.
+The implementation of this function is found in the [vector_add.cu](https://github.com/stevenstage/cuda-learning/blob/main/lecture002/vector_add.cu) file. It should be noted that the CUDA kernel is written directly in C++, and consequently, during the compilation process, the initial step involves generating a.out, which then requires further compilation to yield the desired result.
 
 The following is the compilation statement for the cu file:
 ```
@@ -92,7 +92,7 @@ Therefore, the printed result is the image result shown above.
 ### Ex2: image become gray
 After becoming familiar with the syntax of CUDA kernel functions, we can utilize this custom kernel function to implement related functionality, i.e., combining C++ and Python to maximise the use of GPU memory to create hardware-aligned algorithms.
 
-Hey, so the next experiment we're going to do together is going to be really cool. We're going to convert an image to grayscale. The idea is really simple. All you have to do is convert each pixel's RGB values to grayscale using this formula: (0.21*R + 0.71*G + 0.07*B). This will change the image from a three-channel format to a single-channel format. You'll be pleased to know that the core of the code operation is in rgb2gray.cu. The Python code operation uses the CUDA kernel function for calling and functionality implementation, as we mentioned in the previous lesson under the name load_inline.
+Hey, so the next experiment we're going to do together is going to be really cool. We're going to convert an image to grayscale. The idea is really simple. All you have to do is convert each pixel's RGB values to grayscale using this formula: (0.21*R + 0.71*G + 0.07*B). This will change the image from a three-channel format to a single-channel format. You'll be pleased to know that the core of the code operation is in [rgb2gray.cu](https://github.com/stevenstage/cuda-learning/blob/main/lecture002/rgb2gray.cu). The Python code operation uses the CUDA kernel function for calling and functionality implementation, as we mentioned in the previous lesson under the name load_inline.
 
 ```c++
 __global__
@@ -143,7 +143,7 @@ torch::Tensor rgb_to_grayscale(torch::Tensor image) {
 It is simply a matter of creating the output tensor and then starting the kernel. The output image is shown below:
 
 ### Ex3: Mean Filter
-This experiment mainly implements image blurring. Since it is very similar to Ex2, we will only introduce how the kernel function is written here.
+This experiment mainly implements image blurring. Since it is very similar to Ex2, we will only introduce how the kernel function is written here. The implementation of this function is found in the [filter.cu](https://github.com/stevenstage/cuda-learning/blob/main/lecture002/filter.cu) file.
 ```c++
 __global__
 void mean_filter_kernel(unsigned char* output, unsigned char* input, int width, int height, int radius) {
