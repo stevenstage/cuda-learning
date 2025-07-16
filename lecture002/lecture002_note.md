@@ -16,6 +16,9 @@ After generating the a.out file, you can directly compile the a.out file using t
   ./a.out
 ```
 The generated results are shown below：
+<p align="center">
+  <img src="https://github.com/stevenstage/cuda-learning/blob/main/image/lecture_002/1.png" width="800px"/>
+</p>
 
 In order to comprehend the underlying causes of this outcome, a meticulous and methodical examination of the code is imperative. Initially, the process of this CUDA kernel entails the creation of three arrays, designated A, B, and C, with each array comprising 1,000 elements. Subsequently, a copy of A and B is transferred to the graphics memory. Following this, the kernel function is invoked, resulting in the calculation of C. Finally, the resultant value is printed. The kernel function in question performs 1,000 additions in parallel on the GPU：
 ```
@@ -87,10 +90,6 @@ It is the following expression:
 ```c++
 C[i] = i * 1.001
 ```
-Therefore, the printed result is the image result shown above:
-<p align="center">
-  <img src="https://github.com/stevenstage/cuda-learning/blob/main/image/lecture_002/1.png" width="800px"/>
-</p>
 
 ### Ex2: image become gray
 After becoming familiar with the syntax of CUDA kernel functions, we can utilize this custom kernel function to implement related functionality, i.e., combining C++ and Python to maximise the use of GPU memory to create hardware-aligned algorithms.
