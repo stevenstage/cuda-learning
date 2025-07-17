@@ -19,4 +19,4 @@ The PMPP Book: [Programming Massively Parallel Processors: A Hands-on Approach](
 
 ## Lecture 3: Getting Started With CUDA
 - Speaker: [Jeremy Howard](https://twitter.com/jeremyphoward)
-- Notebook: See the [lecture_003](./lecture_003/) folder, or run the [Colab version](https://colab.research.google.com/drive/180uk6frvMBeT4tywhhYXmz3PJaCIA_uk?usp=sharing)
+- Notebook: See the [Colab version](https://colab.research.google.com/drive/180uk6frvMBeT4tywhhYXmz3PJaCIA_uk?usp=sharing)
