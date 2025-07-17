@@ -16,3 +16,7 @@ The PMPP Book: [Programming Massively Parallel Processors: A Hands-on Approach](
 - Speaker: [Andreas Koepf](https://twitter.com/neurosp1ke)
 - Slides: Alternatively [here](https://docs.google.com/presentation/d/1deqvEHdqEC4LHUpStO6z3TT77Dt84fNAvTIAxBJgDck/edit#slide=id.g2b1444253e5_1_75) as Google docs presentation.
 - I have implemented these experiments using [triton](https://github.com/stevenstage/cuda-learning/tree/main/lecture002/triton)
+
+## Lecture 3: Getting Started With CUDA
+- Speaker: [Jeremy Howard](https://twitter.com/jeremyphoward)
+- Notebook: See the [lecture_003](./lecture_003/) folder, or run the [Colab version](https://colab.research.google.com/drive/180uk6frvMBeT4tywhhYXmz3PJaCIA_uk?usp=sharing)
