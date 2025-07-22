@@ -39,7 +39,7 @@ def main(n: int = 1000):
     b = a / 1000.0
     c = vecadd_triton(a, b)
 
-    # 打印前 20 个结果验证
+    # print the top 20
     print(c[:20])
 
 if __name__ == "__main__":
