@@ -20,3 +20,4 @@ The PMPP Book: [Programming Massively Parallel Processors: A Hands-on Approach](
 ## Lecture 3: Getting Started With CUDA
 - Speaker: [Jeremy Howard](https://twitter.com/jeremyphoward)
 - Notebook: See the [Colab version](https://colab.research.google.com/drive/180uk6frvMBeT4tywhhYXmz3PJaCIA_uk?usp=sharing)
+- Because the [Colab version](https://colab.research.google.com/drive/180uk6frvMBeT4tywhhYXmz3PJaCIA_uk?usp=sharing) has very clear explanatory videos in youtube and well-structured code. I will present the implementation of [Triton] (https://github.com/stevenstage/cuda-learning/tree/main/lecture002/triton) in the form of notes to help everyone better understand CUDA and Triton.
