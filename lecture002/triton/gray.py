@@ -8,7 +8,7 @@ import os
 import fire
 
 @triton.jit
-def rgb2gray_kernel_optimized(
+def rgb2gray_kernel_optimized_fixed(
     out_ptr,    # uint8* (H*W)
     in_ptr,     # uint8* (H*W*3)
     H,
@@ -20,20 +20,15 @@ def rgb2gray_kernel_optimized(
     total = H * W
     mask = offset < total
     
-    # Vectorized memory access - load RGB triplets together
+    # Load RGB values separately (avoiding non-power-of-2 arange)
     rgb_offset = offset * 3
-    # Load all RGB values at once using vectorized operations
-    rgb_mask = (offset < total)[:, None] & (tl.arange(0, 3)[None, :] < 3)
-    rgb_data = tl.load(in_ptr + rgb_offset[:, None] + tl.arange(0, 3)[None, :], 
-                       mask=rgb_mask, other=0.0).to(tl.float32)
     
-    # Extract R, G, B channels
-    r = rgb_data[:, 0]
-    g = rgb_data[:, 1] 
-    b = rgb_data[:, 2]
+    # Load R, G, B channels separately
+    r = tl.load(in_ptr + rgb_offset, mask=mask, other=0.0).to(tl.float32)
+    g = tl.load(in_ptr + rgb_offset + 1, mask=mask, other=0.0).to(tl.float32)
+    b = tl.load(in_ptr + rgb_offset + 2, mask=mask, other=0.0).to(tl.float32)
     
     # Compute grayscale using standard luminance formula
-    # Using more precise coefficients
     gray = 0.299 * r + 0.587 * g + 0.114 * b
     gray = gray.to(tl.uint8)
     
@@ -51,7 +46,6 @@ def rgb2gray_kernel_coalesced(
     pid = tl.program_id(0)
     
     # Process multiple pixels per thread for better memory efficiency
-    pixels_per_thread = 4
     base_offset = pid * BLOCK_SIZE
     
     # Load multiple pixels at once
@@ -68,8 +62,8 @@ def rgb2gray_kernel_coalesced(
     b_vals = tl.load(in_ptr + rgb_offsets + 2, mask=mask, other=0).to(tl.float32)
     
     # Optimized grayscale computation with bit shifts for faster multiplication
-    # 0.299 ≈ 76/256, 0.587 ≈ 150/256, 0.114 ≈ 29/256
-    gray = ((77 * r + 150 * g + 29 * b) + 128).to(tl.int32) >> 8
+    # 0.299 ≈ 77/256, 0.587 ≈ 150/256, 0.114 ≈ 29/256
+    gray = ((77 * r_vals + 150 * g_vals + 29 * b_vals) + 128).to(tl.int32) >> 8
     gray = gray.to(tl.uint8)
     
     tl.store(out_ptr + offsets, gray, mask=mask)
@@ -132,7 +126,7 @@ def rgb2gray_triton_optimized(img_path: str, out_path: str = None, version: str 
     
     # Choose kernel version
     kernel_map = {
-        "optimized": rgb2gray_kernel_optimized,
+        "optimized": rgb2gray_kernel_optimized_fixed,
         "coalesced": rgb2gray_kernel_coalesced, 
         "fast": rgb2gray_kernel_fast
     }
