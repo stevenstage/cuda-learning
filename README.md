@@ -27,7 +27,7 @@ The PMPP Book: [Programming Massively Parallel Processors: A Hands-on Approach](
 - Notebook and slides in the [lecture_004](./lecture_004/) folder.
 
 ## Exercise
-- Here is an assignment on efficient computing AI. The specific requirements are shown in the [PDF](). I have attempted to implement it and present the results in the [hw1.md]() and [hw2.md]() files. Everyone is welcome to reproduce and improve it!
+- Here is an assignment on efficient computing AI. The specific requirements are shown in the [PDF](https://github.com/stevenstage/cuda-learning/blob/main/exercise/HW1%2B2.pdf). I have attempted to implement it and present the results in the [hw1.md](https://github.com/stevenstage/cuda-learning/blob/main/exercise/hw1.md) and [hw2.md](https://github.com/stevenstage/cuda-learning/blob/main/exercise/hw2.md) files. Everyone is welcome to reproduce and improve it!
 
 
 
