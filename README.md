@@ -26,6 +26,18 @@ The PMPP Book: [Programming Massively Parallel Processors: A Hands-on Approach](
 - Speaker: [Thomas Viehmann](https://lernapparat.de/)
 - Notebook and slides in the [lecture_004](./lecture_004/) folder.
 
+## Exercise
+- Here is an assignment on efficient computing AI. The specific requirements are shown in the [PDF](). I have attempted to implement it and present the results in the [hw1.md]() and [hw2.md]() files. Everyone is welcome to reproduce and improve it!
+
+
+
+
+
+
+
+
+
+
 
 
 
